@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Report Card</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>XYZ Group of Institutions</h1>
+        <h2>Student Report Card</h2>
+
+        <div class="input-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name">
+
+            <label for="class">Class:</label>
+            <input type="text" id="class">
+
+            <label for="math">Math Marks:</label>
+            <input type="number" id="math">
+
+            <label for="science">Science Marks:</label>
+            <input type="number" id="science">
+
+            <label for="english">English Marks:</label>
+            <input type="number" id="english">
+
+            <label for="history">History Marks:</label>
+            <input type="number" id="history">
+
+            <label for="geography">Geography Marks:</label>
+            <input type="number" id="geography">
+
+            <button onclick="generateReport()">Submit</button>
+        </div>
+
+        <div class="report-card" style="display:none;">
+            <h3 class="institution-name">XYZ Group of Institutions</h3>
+            <h2>Student Report Card</h2>
+            <p><strong>Name:</strong> <span id="studentName"></span></p>
+            <p><strong>Class:</strong> <span id="studentClass"></span></p>
+
+            <table>
+                <tr><th>Subject</th><th>Marks</th></tr>
+                <tr><td>Math</td><td id="dispMath"></td></tr>
+                <tr><td>Science</td><td id="dispScience"></td></tr>
+                <tr><td>English</td><td id="dispEnglish"></td></tr>
+                <tr><td>History</td><td id="dispHistory"></td></tr>
+                <tr><td>Geography</td><td id="dispGeography"></td></tr>
+            </table>
+
+            <h3>Performance Charts</h3>
+            <div class="chart-container">
+                <div class="charts">
+                    <canvas id="barChart"></canvas>
+                </div>
+                <div class="charts">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+            <div class="pie-legend-container">
+            </div>
+        </div>
+
+        <button id="downloadPdfBtn" style="display:none; margin-top: 20px; padding: 10px 20px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px; transition: background-color 0.3s ease;">Download PDF</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
